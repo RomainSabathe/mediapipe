@@ -294,11 +294,17 @@ class SolutionBase:
             packet=self._make_packet(_PacketDataType.IMAGE,
                                      data).at(self._simulated_timestamp))
       else:
-        # TODO: Support audio data.
-        raise NotImplementedError(
-            f'SolutionBase can only process image data. '
-            f'{self._input_stream_type_info[stream_name].name} '
-            f'type is not supported yet.')
+        print("Non-image input stream found. Found %s for stream %s." % (
+                self._input_stream_type_info[stream_name], stream_name))
+        print("We'll attempt to create it... It can fail...")
+        self._graph.add_packet_to_input_stream(
+            stream=stream_name,
+            packet=self._make_packet(self._input_stream_type_info[stream_name],
+                                     data).at(self._simulated_timestamp))
+            #raise NotImplementedError(
+            #    f'SolutionBase can only process image data. '
+            #    f'{self._input_stream_type_info[stream_name].name} '
+            #    f'type is not supported yet.')
 
     self._graph.wait_until_idle()
     # Create a NamedTuple object where the field names are mapping to the graph
