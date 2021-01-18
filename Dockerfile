@@ -28,17 +28,28 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg \
         git \
         wget \
+        cmake \
         unzip \
         python3-dev \
         python3-opencv \
+        python3-venv \
         python3-pip \
+        protobuf-compiler \
+        libprotobuf-dev \
+        libgtk2.0-dev \
         libopencv-core-dev \
         libopencv-highgui-dev \
         libopencv-imgproc-dev \
         libopencv-video-dev \
         libopencv-calib3d-dev \
         libopencv-features2d-dev \
-        software-properties-common && \
+        software-properties-common \
+        gcc-8 \
+        gcc++-8 \
+        # Necessary things to build opencv
+        make  build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev
+        libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev
+        libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev && \
     add-apt-repository -y ppa:openjdk-r/ppa && \
     apt-get update && apt-get install -y openjdk-8-jdk && \
     apt-get clean && \
