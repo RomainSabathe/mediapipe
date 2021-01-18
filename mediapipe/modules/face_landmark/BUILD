@@ -121,3 +121,17 @@ mediapipe_simple_subgraph(
         "//mediapipe/calculators/util:rect_transformation_calculator",
     ],
 )
+mediapipe_simple_subgraph(
+    name = "face_landmark_with_iris_cpu",
+    graph = "face_landmark_with_iris_cpu.pbtxt",
+    register_as = "FaceLandmarkWithIrisCpu",
+    deps = [
+        "//mediapipe/modules/face_detection:face_detection_front_cpu",
+        "//mediapipe/modules/iris_landmark:iris_landmark_left_and_right_cpu",
+        "//mediapipe/calculators/core:split_normalized_landmark_list_calculator",
+        "//mediapipe/calculators/core:concatenate_normalized_landmark_list_calculator",
+        "//mediapipe/calculators/core:split_vector_calculator",
+        "//mediapipe/calculators/core:concatenate_vector_calculator",
+        "//mediapipe/graphs/iris_tracking/calculators:update_face_landmarks_calculator",
+    ],
+)

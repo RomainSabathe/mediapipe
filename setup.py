@@ -220,6 +220,7 @@ class BuildBinaryGraphs(build.build):
     _check_bazel()
     binary_graphs = [
         'face_landmark/face_landmark_front_cpu',
+        'face_landmark/face_landmark_with_iris_cpu',
         'hand_landmark/hand_landmark_tracking_cpu',
         'holistic_landmark/holistic_landmark_cpu',
         'pose_landmark/pose_landmark_cpu',
