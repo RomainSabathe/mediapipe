@@ -32,6 +32,7 @@ pybind_extension(
         ],
     }),
     deps = [
+        #"@intel_ipp//:ipp",
         ":builtin_calculators",
         "//mediapipe/python/pybind:calculator_graph",
         "//mediapipe/python/pybind:image_frame",

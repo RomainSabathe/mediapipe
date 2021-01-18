@@ -182,6 +182,14 @@ http_archive(
 )
 
 http_archive(
+    name = "intel_ipp",
+    build_file = "@//third_party:intel_ipp.BUILD",
+    strip_prefix = "ippicv_lnx",
+    urls = ["https://raw.githubusercontent.com/Itseez/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_linux_20151201.tgz"],
+    sha256 = "4333833e40afaa22c804169e44f9a63e357e21476b765a5683bcb3760107f0da",
+)
+
+http_archive(
     name = "opencv",
     build_file_content = all_content,
     strip_prefix = "opencv-3.4.10",

@@ -110,6 +110,7 @@ cmake_external(
         "WITH_ITT": "OFF",
         "WITH_JASPER": "OFF",
         "WITH_WEBP": "OFF",
+        "WITH_IPP": "OFF",
         # When building tests, by default Bazel builds them in dynamic mode.
         # See https://docs.bazel.build/versions/master/be/c-cpp.html#cc_binary.linkstatic
         # For example, when building //mediapipe/calculators/video:opencv_video_encoder_calculator_test,
@@ -172,7 +173,9 @@ cmake_external(
     static_libraries = [
         "libopencv_%s.a" % module
         for module in OPENCV_MODULES
-    ] if not OPENCV_SHARED_LIBS else None,
+    ]
+    #+ ["libippicv.a", "libippiw.a", "liblibprotobuf.a", "libquirc.a"]
+    if not OPENCV_SHARED_LIBS else None,
 )
 
 alias(
