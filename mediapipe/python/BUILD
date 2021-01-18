@@ -64,7 +64,7 @@ cc_library(
         "//mediapipe/calculators/util:detection_unique_id_calculator",
         "//mediapipe/modules/face_detection:face_detection_front_cpu",
         "//mediapipe/modules/face_landmark:face_landmark_front_cpu",
-        "//mediapipe/modules/face_landmark:face_landmark_and_iris_cpu",
+        "//mediapipe/modules/face_landmark:face_landmark_with_iris_cpu",
         "//mediapipe/modules/hand_landmark:hand_landmark_tracking_cpu",
         "//mediapipe/modules/holistic_landmark:holistic_landmark_cpu",
         "//mediapipe/modules/palm_detection:palm_detection_cpu",
