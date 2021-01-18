@@ -47,8 +47,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         gcc-8 \
         gcc++-8 \
         # Necessary things to build opencv
-        make  build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev
-        libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev
+        make  build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
+        libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev \
         libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev && \
     add-apt-repository -y ppa:openjdk-r/ppa && \
     apt-get update && apt-get install -y openjdk-8-jdk && \
