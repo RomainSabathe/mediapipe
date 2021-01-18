@@ -221,8 +221,10 @@ class SolutionBase:
     if calculator_params:
       self._modify_calculator_options(canonical_graph_config_proto,
                                       calculator_params)
+    # self._graph = calculator_graph.CalculatorGraph(
+    #     graph_config=canonical_graph_config_proto)
     self._graph = calculator_graph.CalculatorGraph(
-        graph_config=canonical_graph_config_proto)
+        validated_graph_config=validated_graph)
     self._simulated_timestamp = 0
     self._graph_outputs = {}
 
