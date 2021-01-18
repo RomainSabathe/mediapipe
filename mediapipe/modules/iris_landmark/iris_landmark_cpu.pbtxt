@@ -153,4 +153,3 @@ node {
   output_stream: "NORM_LANDMARKS:0:projected_iris_landmarks"
   output_stream: "NORM_LANDMARKS:1:projected_eye_landmarks"
 }
-

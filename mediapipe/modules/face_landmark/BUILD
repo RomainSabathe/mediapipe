@@ -121,6 +121,7 @@ mediapipe_simple_subgraph(
         "//mediapipe/calculators/util:rect_transformation_calculator",
     ],
 )
+
 mediapipe_simple_subgraph(
     name = "face_landmark_with_iris_cpu",
     graph = "face_landmark_with_iris_cpu.pbtxt",

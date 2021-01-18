@@ -209,6 +209,7 @@ class SolutionBase:
     # MediaPipe package root path
     root_path = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-3])
     resource_util.set_resource_dir(root_path)
+
     validated_graph = validated_graph_config.ValidatedGraphConfig()
     if binary_graph_path:
       validated_graph.initialize(
