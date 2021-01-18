@@ -133,6 +133,7 @@ cmake_external(
         # In any case, Bazel does its own caching of the rule's outputs.
         "ENABLE_CCACHE": "OFF",
     },
+    env_vars = {"CXXFLAGS": "-w -std=c++0x"},
     lib_source = "@opencv//:all",
     linkopts = [] if OPENCV_SHARED_LIBS else [
         # When using static libraries, the binary that eventually depends on the
