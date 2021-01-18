@@ -55,14 +55,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade setuptools
-RUN pip3 install wheel
-RUN pip3 install future
-RUN pip3 install six==1.14.0
-RUN pip3 install tensorflow==1.14.0
-RUN pip3 install tf_slim
+# Installing python 3.8
+ENV PATH="/mediapipe/.pyenv/bin:/mediapipe/.pyenv/shims:${PATH}"
+ENV PYENV_ROOT="/mediapipe/.pyenv"
+RUN git clone --recursive \
+        https://github.com/pyenv/pyenv.git /mediapipe/.pyenv && \
+    cd /mediapipe/.pyenv && \
+    git checkout tags/v1.2.21
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
+# Installing python.
+RUN cd /mediapipe && \
+    eval "$(pyenv init -)" && \
+    pyenv install 3.8.6
+RUN pyenv global 3.8.6
+RUN pip3 install --upgrade setuptools
+RUN pip3 install wheel future six==1.14.0 tf_slim scikit-build cmake
+#RUN pip3  install tensorflow==1.14.0
+
+# RUN ln -s /usr/bin/python3.8 /usr/bin/python
 
 # Install bazel
 ARG BAZEL_VERSION=3.4.1
@@ -74,6 +84,8 @@ azel-${BAZEL_VERSION}-installer-linux-x86_64.sh" && \
     /bazel/installer.sh  && \
     rm -f /bazel/installer.sh
 
+COPY requirements.txt /mediapipe/requirements.txt
+RUN pip3 install -r requirements.txt 
 COPY . /mediapipe/
 
 # If we want the docker image to contain the pre-built object_detection_offline_demo binary, do the following
