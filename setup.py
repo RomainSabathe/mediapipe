@@ -235,6 +235,7 @@ class BuildBinaryGraphs(build.build):
     bazel_command = [
         'bazel',
         'build',
+        '--verbose_failures',
         '--compilation_mode=opt',
         '--define=MEDIAPIPE_DISABLE_GPU=1',
         '--action_env=PYTHON_BIN_PATH=' + _normalize_path(sys.executable),
