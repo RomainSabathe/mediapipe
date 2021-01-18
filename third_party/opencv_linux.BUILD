@@ -1,5 +1,7 @@
 # Description:
 #   OpenCV libraries for video/image processing on Linux
+#
+load("@rules_cc//cc:defs.bzl", "cc_library")
 
 licenses(["notice"])  # BSD license
 
