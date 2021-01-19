@@ -33,7 +33,7 @@ from distutils import spawn
 import distutils.command.build as build
 import distutils.command.clean as clean
 
-__version__ = '0.8'
+__version__ = '0.9'
 IS_WINDOWS = (platform.system() == 'Windows')
 MP_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 ROOT_INIT_PY = os.path.join(MP_ROOT_PATH, '__init__.py')
